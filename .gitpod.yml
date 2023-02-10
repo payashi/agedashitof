@@ -1,7 +1,18 @@
 image:
   file: .gitpod.Dockerfile
+
+tasks:
+  - command: 'echo export JAVA_TOOL_OPTIONS=\"$JAVA_TOOL_OPTIONS -Dsun.java2d.xrender=false\" >>/home/gitpod/.bashrc'
+
 ports:
   - port: 6080
-tasks:
-  - init: make init
-    command: make run
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - redhat.java
+    - vscjava.vscode-java-pack
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-test
+    - vscjava.vscode-maven
+    - vscjava.vscode-java-dependency
